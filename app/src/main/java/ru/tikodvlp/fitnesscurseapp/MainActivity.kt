@@ -1,4 +1,4 @@
-package ru.tikodvlp.fitnescurseapp
+package ru.tikodvlp.fitnesscurseapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

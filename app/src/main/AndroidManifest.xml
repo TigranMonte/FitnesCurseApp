@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.tikodvlp.fitnescurseapp">
+    package="ru.tikodvlp.fitnesscurseapp">
 
     <application
         android:allowBackup="true"
@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnesCurseApp">
         <activity
-            android:name=".MainActivity"
+            android:name="ru.tikodvlp.fitnesscurseapp.MainActivity"
             android:exported="false" />
         <activity
             android:theme="@style/Theme.Splash"
             android:noHistory="true"
-            android:name=".SplashActivity"
+            android:name="ru.tikodvlp.fitnesscurseapp.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

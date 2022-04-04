@@ -1,4 +1,4 @@
-package ru.tikodvlp.fitnescurseapp
+package ru.tikodvlp.fitnesscurseapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
