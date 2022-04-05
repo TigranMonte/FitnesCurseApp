@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FitnessCurseApp</string>
+    <string name="slogan">На пути к совершенству!</string>
+    <string name="осталось_дней">Осталось 20 дней</string>
 </resources>
