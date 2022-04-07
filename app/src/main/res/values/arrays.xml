@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="exercise">
+        <item>Разминка|x10|start_ex1.gif</item>            <!-- 0 -->
+        <item>Отдых|30|rest.gif</item>                     <!-- 1 -->
+        <item>Прыжки на месте|40|jumping2.gif</item>       <!-- 2 -->
+        <item>Прыжки на препятствие|40|jumping1.gif</item> <!-- 3 -->
+        <item>Отжимания|x20|pushups1.gif</item>            <!-- 4 -->
+        <item>Пресс|40|abs_ex1.gif</item>                  <!-- 5 -->
+        <item>Пресс|40|abs_ex2.gif</item>                  <!-- 6 -->
+        <item>Пресс|30|abs_ex3.gif</item>                  <!-- 7 -->
+        <item>Спина|x12|back_ex.gif</item>                 <!-- 8 -->
+        <item>Спина|x12|back_ex2.gif</item>                <!-- 9 -->
+        <item>Спина|x8|back_ex3.gif</item>                 <!-- 10 -->
+        <item>Спина|x12|back_ex4.gif</item>                <!-- 11 -->
+        <item>Спина|x12|back_ex5.gif</item>                <!-- 12 -->
+        <item>Плечи|x12|shoulder_ex1.gif</item>            <!-- 13 -->
+        <item>Грудные|x12|chest_ex1.gif</item>             <!-- 14 -->
+        <item>Ноги|x12|foot_ex1.gif</item>                 <!-- 15 -->
+        <item>Бицепсы|x12|arm1.gif</item>                  <!-- 16 -->
+        <item>Трицепсы|x12|arm2.gif</item>                 <!-- 17 -->
+        <item>Подтягивания|x12|pull_ups1.gif</item>        <!-- 18 -->
+        <item>Подтягивания|x12|pull_ups2.gif</item>        <!-- 19 -->
+        <item>Планка|40|planka.gif</item>                  <!-- 20 -->
+        <item>Плечи|x12|shoulder_ex2.gif</item>            <!-- 21 -->
+    </string-array>
+    <string-array name="day_exercise">
+        <item>0,20,1,5,1,6,1,7,1,15,1,2,1,3,1</item>              <!-- День1 Пресс, Ноги -->
+        <item>0,20,1,8,1,9,1,10,1,11,1,12,1,17,1</item>           <!-- День2 Спина, Трицепсы -->
+        <item>0,20,1,4,1,14,1,18,1,19,1,16,1</item>               <!-- День3 Грудные, Бицепсы -->
+        <item>0,20,1,21,1,13,1,5,1,7,1,6,1</item>                 <!-- День4 Плечи, Пресс -->
+    </string-array>
+</resources>
