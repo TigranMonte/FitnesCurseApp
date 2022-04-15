@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ru.tikodvlp.fitnesscurseapp.R
 import ru.tikodvlp.fitnesscurseapp.adapters.DayModel
 import ru.tikodvlp.fitnesscurseapp.adapters.DaysAdapter
+import ru.tikodvlp.fitnesscurseapp.adapters.ExerciseModel
 import ru.tikodvlp.fitnesscurseapp.databinding.FragmentDaysBinding
 import ru.tikodvlp.fitnesscurseapp.utils.FragmentManager
 
@@ -39,10 +40,20 @@ class DaysFragment : Fragment(), DaysAdapter.Listener {
 
     private fun fillDaysArray(): ArrayList<DayModel> {
         val tempArray = ArrayList<DayModel>() // временный экземпляр класса для послед. заполнения
-        resources.getStringArray(R.array.day_exercise).forEach {
+        resources.getStringArray(R.array.day_exercises).forEach {
             tempArray.add(DayModel(it, false))
         }
         return tempArray
+    }
+
+    private fun fillExerciseList(day: DayModel) {
+        val tempList = ArrayList<ExerciseModel>()
+        day.exercises.split(",").forEach{
+            val exerciseList = resources.getStringArray(R.array.exercise)
+            val exercise = exerciseList[it.toInt()]
+            val exerciseArray = exercise.split("|")
+            tempList.add(ExerciseModel(exerciseArray[0], exerciseArray[1], exerciseArray[2]))
+        }
     }
 
     companion object {
@@ -51,6 +62,8 @@ class DaysFragment : Fragment(), DaysAdapter.Listener {
     }
 
     override fun onClick(day: DayModel) {
-        FragmentManager.setFragment(ExercisesListFragment.newInstance(), activity as AppCompatActivity)
+        fillExerciseList(day)
+        FragmentManager.setFragment(ExercisesListFragment.newInstance(),
+            activity as AppCompatActivity)
     }
 }
