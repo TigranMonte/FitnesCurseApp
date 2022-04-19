@@ -7,5 +7,4 @@ import ru.tikodvlp.fitnesscurseapp.adapters.ExerciseModel
 class MainViewModel : ViewModel() {
 
     val mutableListExercise = MutableLiveData<ArrayList<ExerciseModel>> ()
-
 }
