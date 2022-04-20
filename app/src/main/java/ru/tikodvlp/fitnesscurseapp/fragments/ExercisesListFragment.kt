@@ -16,6 +16,7 @@ import ru.tikodvlp.fitnesscurseapp.adapters.ExerciseAdapter
 import ru.tikodvlp.fitnesscurseapp.adapters.ExerciseModel
 import ru.tikodvlp.fitnesscurseapp.databinding.ExercisesListFragmentBinding
 import ru.tikodvlp.fitnesscurseapp.databinding.FragmentDaysBinding
+import ru.tikodvlp.fitnesscurseapp.utils.FragmentManager
 import ru.tikodvlp.fitnesscurseapp.utils.MainViewModel
 
 class ExercisesListFragment : Fragment() {
@@ -44,6 +45,10 @@ class ExercisesListFragment : Fragment() {
         adapter = ExerciseAdapter()
         rcView.layoutManager = LinearLayoutManager(activity)
         rcView.adapter = adapter
+        btnStart.setOnClickListener {
+            FragmentManager.setFragment(WaitingFragment.newInstance(),
+                activity as AppCompatActivity)
+        }
     }
 
     companion object {

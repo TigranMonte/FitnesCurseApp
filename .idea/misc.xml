@@ -7,7 +7,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23233695652173914" />
         <entry key="app/src/main/res/layout/days_list_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/exercise_list_item.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/exercises_list_fragment.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/exercises_list_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_days.xml" value="0.33" />
         <entry key="app/src/main/res/layout/splash_activity.xml" value="0.23233695652173914" />
         <entry key="app/src/main/res/layout/waiting_fragment.xml" value="0.33" />

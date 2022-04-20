@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
@@ -19,6 +20,7 @@ import ru.tikodvlp.fitnesscurseapp.databinding.ExercisesListFragmentBinding
 import ru.tikodvlp.fitnesscurseapp.databinding.FragmentDaysBinding
 import ru.tikodvlp.fitnesscurseapp.databinding.WaitingFragmentBinding
 import ru.tikodvlp.fitnesscurseapp.utils.MainViewModel
+import ru.tikodvlp.fitnesscurseapp.utils.TimeUtils
 
 const val COUNT_DOWN_TIME = 11000L
 class WaitingFragment : Fragment() {
@@ -37,16 +39,18 @@ class WaitingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.pBar.max = COUNT_DOWN_TIME.toInt()
+        startTimer()
     }
 
     private fun startTimer() = with (binding){
-        timer = object : CountDownTimer(COUNT_DOWN_TIME, 100) {
+        timer = object : CountDownTimer(COUNT_DOWN_TIME, 1) {
             override fun onTick(restTime: Long) {
+                tvTimer.text = TimeUtils.getTime(restTime)
                 pBar.progress = restTime.toInt()
             }
 
             override fun onFinish() {
-
+                Toast.makeText(activity, "Выполнено", Toast.LENGTH_SHORT).show()
             }
 
         }.start()
