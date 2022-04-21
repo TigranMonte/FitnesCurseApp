@@ -1,7 +1,6 @@
 package ru.tikodvlp.fitnesscurseapp.fragments
 
 import android.os.Bundle
-import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,60 +10,61 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
+import pl.droidsonroids.gif.GifDrawable
 import ru.tikodvlp.fitnesscurseapp.R
 import ru.tikodvlp.fitnesscurseapp.adapters.DayModel
 import ru.tikodvlp.fitnesscurseapp.adapters.DaysAdapter
 import ru.tikodvlp.fitnesscurseapp.adapters.ExerciseAdapter
 import ru.tikodvlp.fitnesscurseapp.adapters.ExerciseModel
+import ru.tikodvlp.fitnesscurseapp.databinding.ExerciseFragmentBinding
 import ru.tikodvlp.fitnesscurseapp.databinding.ExercisesListFragmentBinding
 import ru.tikodvlp.fitnesscurseapp.databinding.FragmentDaysBinding
-import ru.tikodvlp.fitnesscurseapp.databinding.WaitingFragmentBinding
 import ru.tikodvlp.fitnesscurseapp.utils.FragmentManager
 import ru.tikodvlp.fitnesscurseapp.utils.MainViewModel
-import ru.tikodvlp.fitnesscurseapp.utils.TimeUtils
 
-const val COUNT_DOWN_TIME = 11000L
-class WaitingFragment : Fragment() {
+class ExercisesFragment : Fragment() {
 
-    private lateinit var binding: WaitingFragmentBinding
-    private lateinit var timer: CountDownTimer
+    private lateinit var binding: ExerciseFragmentBinding
+    private var exerciseCounter = 0
+    private var exList: ArrayList<ExerciseModel>? = null
+    private val model: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = WaitingFragmentBinding.inflate(inflater, container, false)
+        binding = ExerciseFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.pBar.max = COUNT_DOWN_TIME.toInt()
-        startTimer()
+        model.mutableListExercise.observe(viewLifecycleOwner) {
+            exList = it
+            nextExercise()
+        }
+        binding.btnNext.setOnClickListener {
+            nextExercise()
+        }
     }
 
-    private fun startTimer() = with (binding){
-        timer = object : CountDownTimer(COUNT_DOWN_TIME, 1) {
-            override fun onTick(restTime: Long) {
-                tvTimer.text = TimeUtils.getTime(restTime)
-                pBar.progress = restTime.toInt()
-            }
-
-            override fun onFinish() {
-                FragmentManager.setFragment(ExercisesFragment.newInstance(),
-                    activity as AppCompatActivity)
-            }
-
-        }.start()
+    private fun nextExercise() {
+        if (exerciseCounter < exList?.size!!) {
+            val ex = exList?.get(exerciseCounter++)
+            showExercise(ex)
+        } else {
+            Toast.makeText(activity, "Упражнения выполнены", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        timer.cancel()
+    private fun showExercise(exercise: ExerciseModel?) = with(binding) {
+        if (exercise == null) return@with
+        imMain.setImageDrawable(GifDrawable(root.context.assets, exercise.image))
+        tvName.text = exercise.name
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = WaitingFragment()
+        fun newInstance() = ExercisesFragment()
     }
 }
