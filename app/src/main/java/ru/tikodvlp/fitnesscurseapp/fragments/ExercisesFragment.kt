@@ -1,6 +1,7 @@
 package ru.tikodvlp.fitnesscurseapp.fragments
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,11 +22,13 @@ import ru.tikodvlp.fitnesscurseapp.databinding.ExercisesListFragmentBinding
 import ru.tikodvlp.fitnesscurseapp.databinding.FragmentDaysBinding
 import ru.tikodvlp.fitnesscurseapp.utils.FragmentManager
 import ru.tikodvlp.fitnesscurseapp.utils.MainViewModel
+import ru.tikodvlp.fitnesscurseapp.utils.TimeUtils
 
 class ExercisesFragment : Fragment() {
 
     private lateinit var binding: ExerciseFragmentBinding
     private var exerciseCounter = 0
+    private var timer: CountDownTimer? = null
     private var exList: ArrayList<ExerciseModel>? = null
     private val model: MainViewModel by activityViewModels()
 
@@ -50,17 +53,45 @@ class ExercisesFragment : Fragment() {
 
     private fun nextExercise() {
         if (exerciseCounter < exList?.size!!) {
-            val ex = exList?.get(exerciseCounter++)
+            val ex = exList?.get(exerciseCounter++) ?: return
             showExercise(ex)
+            setExerciseType(ex)
         } else {
             Toast.makeText(activity, "Упражнения выполнены", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun showExercise(exercise: ExerciseModel?) = with(binding) {
-        if (exercise == null) return@with
+    private fun showExercise(exercise: ExerciseModel) = with(binding) {
         imMain.setImageDrawable(GifDrawable(root.context.assets, exercise.image))
         tvName.text = exercise.name
+    }
+
+    private fun setExerciseType(exercise: ExerciseModel) {
+        if (exercise.time.startsWith("x")) {
+            binding.tvTime.text = exercise.time
+        } else {
+            startTimer(exercise)
+        }
+    }
+
+    private fun startTimer(exercise: ExerciseModel) = with (binding){
+        progressBar2.max = exercise.time.toInt() * 1000
+        timer?.cancel()
+        timer = object : CountDownTimer(exercise.time.toLong() * 1000, 1) {
+            override fun onTick(restTime: Long) {
+                tvTime.text = TimeUtils.getTime(restTime)
+                progressBar2.progress = restTime.toInt()
+            }
+
+            override fun onFinish() {
+                nextExercise()
+            }
+        }.start()
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        timer?.cancel()
     }
 
     companion object {
