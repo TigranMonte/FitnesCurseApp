@@ -58,7 +58,8 @@ class ExercisesFragment : Fragment() {
             setExerciseType(ex)
             showNextExercise()
         } else {
-            Toast.makeText(activity, "Упражнения выполнены", Toast.LENGTH_SHORT).show()
+            FragmentManager.setFragment(DayFinishFragment.newInstance(),
+                activity as AppCompatActivity)
         }
     }
 

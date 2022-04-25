@@ -8,4 +8,5 @@
     <string name="start_exercise">Начать</string>
     <string name="next">Далее</string>
     <string name="done">Тренировка завершена!</string>
+    <string name="done_day">Тренировочный день завершен!</string>
 </resources>
