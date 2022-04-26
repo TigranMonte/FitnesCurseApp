@@ -49,12 +49,10 @@ class WaitingFragment : Fragment() {
                 tvTimer.text = TimeUtils.getTime(restTime)
                 pBar.progress = restTime.toInt()
             }
-
             override fun onFinish() {
                 FragmentManager.setFragment(ExercisesFragment.newInstance(),
                     activity as AppCompatActivity)
             }
-
         }.start()
     }
 
