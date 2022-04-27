@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
@@ -23,6 +24,7 @@ class ExercisesListFragment : Fragment() {
 
     private lateinit var binding: ExercisesListFragmentBinding
     private lateinit var adapter: ExerciseAdapter
+    private var ab: ActionBar? = null
     private val model: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -42,6 +44,8 @@ class ExercisesListFragment : Fragment() {
     }
 
     private fun init() = with (binding){
+        ab = (activity as AppCompatActivity).supportActionBar
+        ab?.title = getString(R.string.all_exercises)
         adapter = ExerciseAdapter()
         rcView.layoutManager = LinearLayoutManager(activity)
         rcView.adapter = adapter

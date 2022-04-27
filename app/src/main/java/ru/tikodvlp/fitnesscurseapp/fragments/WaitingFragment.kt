@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
@@ -26,6 +27,7 @@ import ru.tikodvlp.fitnesscurseapp.utils.TimeUtils
 const val COUNT_DOWN_TIME = 11000L
 class WaitingFragment : Fragment() {
 
+    private var ab: ActionBar? = null
     private lateinit var binding: WaitingFragmentBinding
     private lateinit var timer: CountDownTimer
 
@@ -39,6 +41,8 @@ class WaitingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        ab = (activity as AppCompatActivity).supportActionBar
+        ab?.title = getString(R.string.get_ready)
         binding.pBar.max = COUNT_DOWN_TIME.toInt()
         startTimer()
     }
