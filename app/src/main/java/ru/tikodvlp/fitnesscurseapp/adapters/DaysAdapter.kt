@@ -21,7 +21,7 @@ class DaysAdapter (var listener: Listener) : ListAdapter<DayModel, DaysAdapter.D
                 .size.toString() + " " + root.context.getString(R.string.exercises)
             tvExCounter.text = exCounter
             itemView.setOnClickListener{
-                listener.onClick(day)
+                listener.onClick(day.copy(dayNumber = adapterPosition + 1))
             }
         }
     }
