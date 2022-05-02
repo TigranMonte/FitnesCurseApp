@@ -32,6 +32,7 @@ class ExercisesFragment : Fragment() {
     private var timer: CountDownTimer? = null
     private var exList: ArrayList<ExerciseModel>? = null
     private var ab: ActionBar? = null
+    private var currentDay = 0
     private val model: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -44,6 +45,7 @@ class ExercisesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        currentDay = model.currentDay
         exerciseCounter = model.getExerciseCount()
         ab = (activity as AppCompatActivity).supportActionBar
         model.mutableListExercise.observe(viewLifecycleOwner) {
@@ -62,6 +64,7 @@ class ExercisesFragment : Fragment() {
             setExerciseType(ex)
             showNextExercise()
         } else {
+            exerciseCounter++
             FragmentManager.setFragment(DayFinishFragment.newInstance(),
                 activity as AppCompatActivity)
         }
@@ -119,7 +122,7 @@ class ExercisesFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        model.savePref(model.currentDay.toString(), exerciseCounter - 1)
+        model.savePref(currentDay.toString(), exerciseCounter - 1)
         timer?.cancel()
     }
 
