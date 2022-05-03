@@ -12,4 +12,6 @@
     <string name="next">Далее</string>
     <string name="done">Тренировка завершена!</string>
     <string name="done_day">Тренировочный день завершен!</string>
+    <string name="rest">Осталось:</string>
+    <string name="rest_days">дней</string>
 </resources>
