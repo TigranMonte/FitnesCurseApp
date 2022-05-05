@@ -14,4 +14,5 @@
     <string name="done_day">Тренировочный день завершен!</string>
     <string name="rest">Осталось:</string>
     <string name="rest_days">дней</string>
+    <string name="reset">Сбросить</string>
 </resources>
