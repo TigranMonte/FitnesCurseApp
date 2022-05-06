@@ -15,4 +15,8 @@
     <string name="rest">Осталось:</string>
     <string name="rest_days">дней</string>
     <string name="reset">Сбросить</string>
+    <string name="alert">Внимание!</string>
+    <string name="back">Отмена</string>
+    <string name="reset_days_message">Вы действительно хотите сбросить весь прогресс тренировочных дней?</string>
+    <string name="reset_day_message">Вы действительно хотите сбросить весь прогресс тренировочного дня?</string>
 </resources>
