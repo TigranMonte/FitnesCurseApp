@@ -20,6 +20,7 @@ class DaysFragment : Fragment(), DaysAdapter.Listener {
 
     private lateinit var binding: FragmentDaysBinding
     private lateinit var adapter: DaysAdapter
+
     private val model: MainViewModel by activityViewModels()
     private var ab: ActionBar? = null
 
