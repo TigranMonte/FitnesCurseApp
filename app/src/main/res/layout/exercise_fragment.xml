@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue">
+    android:background="@color/grey">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="@+id/cardView3"
         app:layout_constraintStart_toStartOf="@+id/cardView3"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imMain"
@@ -57,8 +57,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00:30"
-                android:textColor="@color/red"
-                android:textSize="54sp" />
+                android:textColor="@color/dark_blue"
+                android:textSize="54sp"
+                android:textStyle="bold" />
 
             <ProgressBar
                 android:id="@+id/progressBar2"
@@ -66,7 +67,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp" />
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="8dp"
+                android:scaleY="3" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -74,12 +77,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="3dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/btnNext"
         app:layout_constraintEnd_toEndOf="@id/cardView3"
         app:layout_constraintStart_toStartOf="@+id/cardView3"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,8 +112,8 @@
         android:id="@+id/btnNext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:text="@string/next"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

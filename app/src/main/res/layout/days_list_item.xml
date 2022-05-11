@@ -29,17 +29,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvExCounter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textColor="@color/red"
-                android:textStyle="italic" />
+                android:textColor="@color/dark_blue" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

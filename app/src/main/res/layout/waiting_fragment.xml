@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue">
+    android:background="@color/grey">
 
     <TextView
         android:id="@+id/tvTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00:30"
-        android:textColor="@color/red"
+        android:textColor="@color/dark_blue"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:text="@string/waiting_message"
         android:textColor="@color/dark_blue"
-        android:textSize="24sp"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvTimer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -37,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
+        android:scaleY="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
