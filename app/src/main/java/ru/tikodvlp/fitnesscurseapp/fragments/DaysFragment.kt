@@ -1,5 +1,6 @@
 package ru.tikodvlp.fitnesscurseapp.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -57,6 +58,12 @@ class DaysFragment : Fragment(), DaysAdapter.Listener {
                         adapter.submitList(fillDaysArray())
                     }
                 })
+        } else if (item.itemId == R.id.share) {
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text)) // link of the app need to be added
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent, getString(R.string.share_to)))
         }
         return super.onOptionsItemSelected(item)
     }

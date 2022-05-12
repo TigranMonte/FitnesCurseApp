@@ -3,5 +3,10 @@
 
     <item
         android:id="@+id/reset"
-        android:title="@string/reset" />
+        android:title="@string/reset"
+        android:icon="@drawable/ic_redo"/>
+    <item
+        android:id="@+id/share"
+        android:title="@string/share"
+        android:icon="@drawable/ic_share"/>
 </menu>

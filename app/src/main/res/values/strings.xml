@@ -19,4 +19,7 @@
     <string name="back">Отмена</string>
     <string name="reset_days_message">Вы действительно хотите сбросить весь прогресс тренировочных дней?</string>
     <string name="reset_day_message">Вы действительно хотите сбросить весь прогресс тренировочного дня?</string>
+    <string name="share">Рассказать о приложении</string>
+    <string name="share_text">Приложение-ассистент для индивидуальных тренировок</string>
+    <string name="share_to">Отправить в: </string>
 </resources>
