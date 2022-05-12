@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/reset"
         android:title="@string/reset"
-        android:icon="@drawable/ic_redo"/>
+        android:icon="@drawable/ic_redo"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/share"
         android:title="@string/share"
-        android:icon="@drawable/ic_share"/>
+        android:icon="@drawable/ic_share"
+        app:showAsAction="always"/>
 </menu>
