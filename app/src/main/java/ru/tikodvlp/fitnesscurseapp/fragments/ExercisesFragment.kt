@@ -56,7 +56,6 @@ class ExercisesFragment : Fragment() {
             nextExercise()
         }
     }
-
     private fun nextExercise() {
         if (exerciseCounter < exList?.size!!) {
             val ex = exList?.get(exerciseCounter++) ?: return
