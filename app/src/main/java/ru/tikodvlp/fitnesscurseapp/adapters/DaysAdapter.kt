@@ -26,7 +26,6 @@ class DaysAdapter (var listener: Listener) : ListAdapter<DayModel, DaysAdapter.D
             }
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.days_list_item, parent, false)
         return DayHolder(view)
@@ -45,6 +44,7 @@ class DaysAdapter (var listener: Listener) : ListAdapter<DayModel, DaysAdapter.D
             return  oldItem == newItem
         }
     }
+
     interface Listener {
         fun onClick(day: DayModel)
     }
