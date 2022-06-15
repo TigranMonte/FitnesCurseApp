@@ -125,6 +125,7 @@ class ExercisesFragment : Fragment() {
         model.savePref(currentDay.toString(), exerciseCounter - 1)
         timer?.cancel()
     }
+
     companion object {
         @JvmStatic
         fun newInstance() = ExercisesFragment()
